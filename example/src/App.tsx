@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'zsdk';
+import { useEffect } from 'react';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import NativeLocalStorage from 'zsdk';
+import HomeScreen from './screens/home/HomeScreen';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
-
   useEffect(() => {
-    multiply(3, 7).then(setResult);
+    NativeLocalStorage?.clear()
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <HomeScreen />
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -21,8 +22,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "white",
+    padding: 0,
+    margin: 0
   },
   box: {
+    color: "green",
     width: 60,
     height: 60,
     marginVertical: 20,

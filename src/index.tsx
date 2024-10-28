@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import NativeLocalStorage from './NativeLocalStorage';
 
 const LINKING_ERROR =
   `The package 'zsdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -27,3 +28,6 @@ const Zsdk = ZsdkModule
 export function multiply(a: number, b: number): Promise<number> {
   return Zsdk.multiply(a, b);
 }
+
+
+export default isTurboModuleEnabled ? NativeLocalStorage : null
