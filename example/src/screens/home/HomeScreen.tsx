@@ -4,10 +4,11 @@ import { AppColors } from '../../Enums/AppColors';
 import Divider from '../../components/Divider';
 import SDKConfigureSection from './SDKConfigureSection';
 import TunnelStartStopSection from './TunnelStartStopSection';
-import HttpRequestSection from '../HttpRequestSection';
+import HttpRequestSection from './HttpRequestSection';
 import WebViewSection from './WebviewSection';
 import NativeZsdk, { LogLevel } from '../../../../src/NativeZsdk';
-import { AppKeyProvider } from '../../context/AppKeyContext';
+import { AppKeyProvider } from '../../providers/AppKeyProvider';
+import { RequestProvider } from '../../providers/RequestProvider';
 
 const HomeScreen: React.FC = () => {
   useEffect(() => {
@@ -25,9 +26,11 @@ const HomeScreen: React.FC = () => {
         <TunnelStartStopSection />
       </AppKeyProvider>
       <Divider />
-      <HttpRequestSection />
-      <Divider />
-      <WebViewSection />
+      <RequestProvider>
+        <HttpRequestSection />
+        <Divider />
+        <WebViewSection />
+      </RequestProvider>
     </View>
   );
 };

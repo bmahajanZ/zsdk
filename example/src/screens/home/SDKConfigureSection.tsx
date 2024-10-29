@@ -3,7 +3,7 @@ import InputRow from '../../components/InputRow';
 import ActionButton from '../../components/ActionButton';
 import { AppColors } from '../../Enums/AppColors';
 import { AppStrings } from '../../Enums/AppStrings';
-import { AppKeyContext } from '../../context/AppKeyContext';
+import { AppKeyContext } from '../../contexts/AppKeyContext';
 import { useContext } from 'react';
 
 const SDKConfigureSection: React.FC = () => {

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import ToggleButton from '../../components/ToggleButton';
 import NativeZsdk from '../../../../src/NativeZsdk';
 import React, { useContext, useEffect, useState } from 'react';
-import { AppKeyContext } from '../../context/AppKeyContext';
+import { AppKeyContext } from '../../contexts/AppKeyContext';
 
 const TunnelStartStopSection: React.FC = () => {
   return (
