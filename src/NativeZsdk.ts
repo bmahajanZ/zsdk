@@ -10,19 +10,19 @@ export enum LogLevel {
 }
 
 export interface ZscalerSDKConfiguration {
-  useProxyAuthentication?: boolean
-  failIfDeviceCompromised?: boolean
-  blockZPAConnectionsOnTunnelFailure?: boolean
-  enableDebugLogsInConsole?: boolean
+  useProxyAuthentication?: boolean;
+  failIfDeviceCompromised?: boolean;
+  blockZPAConnectionsOnTunnelFailure?: boolean;
+  enableDebugLogsInConsole?: boolean;
   // This has to be number. Setting type to LogLevel is confusing the codegen and it is converting it to string on the native side.
-  logLevel?: number
+  logLevel?: number;
 }
 
 export interface Spec extends TurboModule {
   multiply(a: number, b: number): Promise<number>;
   startPreloginTunnel(appKey: string, udid: string): Promise<Error | void>;
   setConfiguration(ZscaleSDKConfiguration: ZscalerSDKConfiguration): void;
-  status() : string;
+  status(): string;
   stopTunnel(): Promise<void>;
 }
 

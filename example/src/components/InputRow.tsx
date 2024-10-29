@@ -19,11 +19,8 @@ const InputRow: React.FC<InputRowProps> = ({
 }) => {
   return (
     <View style={[styles.container, containerStyle]}>
-      {label ? <Text style={[styles.label, labelStyle]}>{label}</Text> : null} 
-      <TextInput
-        style={[styles.input, inputStyle]}
-        {...inputProps}
-      />
+      {label ? <Text style={[styles.label, labelStyle]}>{label}</Text> : null}
+      <TextInput style={[styles.input, inputStyle]} {...inputProps} />
     </View>
   );
 };
@@ -31,11 +28,11 @@ const InputRow: React.FC<InputRowProps> = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    flex: 1
+    flex: 1,
   },
   label: {
     fontSize: 16,
-    fontWeight: '500', 
+    fontWeight: '500',
   },
   input: {
     height: 40,

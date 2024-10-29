@@ -30,11 +30,16 @@ export function multiply(a: number, b: number): Promise<number> {
   return Zsdk.multiply(a, b);
 }
 
-export function startPreloginTunnel(appKey: string, udid: string): Promise<Error | void> {
+export function startPreloginTunnel(
+  appKey: string,
+  udid: string
+): Promise<Error | void> {
   return Zsdk.startPreloginTunnel(appKey, udid);
 }
 
-export function setConfiguration(ZscaleSDKConfiguration: ZscalerSDKConfiguration): void {
+export function setConfiguration(
+  ZscaleSDKConfiguration: ZscalerSDKConfiguration
+): void {
   return Zsdk.setConfiguration(ZscaleSDKConfiguration);
 }
 
@@ -46,4 +51,4 @@ export function stopTunnel(): Promise<void> {
   return Zsdk.stopTunnel();
 }
 
-export default isTurboModuleEnabled ? NativeLocalStorage : null
+export default isTurboModuleEnabled ? NativeLocalStorage : null;

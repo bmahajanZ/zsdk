@@ -5,7 +5,7 @@ import HomeScreen from './screens/home/HomeScreen';
 
 export default function App() {
   useEffect(() => {
-    NativeLocalStorage?.clear()
+    NativeLocalStorage?.clear();
   }, []);
 
   return (
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 0,
-    margin: 0
+    margin: 0,
   },
   box: {
-    color: "green",
+    color: 'green',
     width: 60,
     height: 60,
     marginVertical: 20,

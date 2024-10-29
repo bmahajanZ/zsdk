@@ -5,6 +5,6 @@ export const AppColors = {
   Black: '#000000',
   ToggleOn: '#34c759',
   ToggleOff: '#f4f4f4',
-  Background: "#f5f5f5",
-  BorderColor: "#ccc",
+  Background: '#f5f5f5',
+  BorderColor: '#ccc',
 } as const;
