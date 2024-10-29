@@ -1786,7 +1786,7 @@ SPEC CHECKSUMS:
   ReactTestApp-Resources: ef64fb77d09031eba0ada7240f39d4579fa02361
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: f8ec45ce98bba1bc93dd28f2ee37215180e6d2b6
-  zsdk: 26001b784a00df3a8dbaa142bbbc9836ae5b052c
+  zsdk: 00b6d30f67c44e8679f3ff222f1676f121ccd19b
 
 PODFILE CHECKSUM: d57ae6e8244e7bd11384bb8eb7a8ceead8f610dd
 

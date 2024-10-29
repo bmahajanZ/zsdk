@@ -1,5 +1,6 @@
 import { NativeModules, Platform } from 'react-native';
 import NativeLocalStorage from './NativeLocalStorage';
+import type { ZscalerSDKConfiguration } from './NativeZsdk';
 
 const LINKING_ERROR =
   `The package 'zsdk' doesn't seem to be linked. Make sure: \n\n` +
@@ -29,5 +30,20 @@ export function multiply(a: number, b: number): Promise<number> {
   return Zsdk.multiply(a, b);
 }
 
+export function startPreloginTunnel(appKey: string, udid: string): Promise<Error | void> {
+  return Zsdk.startPreloginTunnel(appKey, udid);
+}
+
+export function setConfiguration(ZscaleSDKConfiguration: ZscalerSDKConfiguration): void {
+  return Zsdk.setConfiguration(ZscaleSDKConfiguration);
+}
+
+export function status(): string {
+  return Zsdk.status();
+}
+
+export function stopTunnel(): Promise<void> {
+  return Zsdk.stopTunnel();
+}
 
 export default isTurboModuleEnabled ? NativeLocalStorage : null

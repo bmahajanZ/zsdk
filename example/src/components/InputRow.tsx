@@ -5,7 +5,6 @@ import { AppColors } from '../Enums/AppColors';
 
 interface InputRowProps extends TextInputProps {
   label?: string;
-  placeholder?: string; // Added placeholder property
   containerStyle?: ViewStyle;
   labelStyle?: TextStyle;
   inputStyle?: TextStyle;
@@ -16,7 +15,6 @@ const InputRow: React.FC<InputRowProps> = ({
   containerStyle,
   labelStyle,
   inputStyle,
-  placeholder, // Added placeholder prop
   ...inputProps
 }) => {
   return (
@@ -24,7 +22,6 @@ const InputRow: React.FC<InputRowProps> = ({
       {label ? <Text style={[styles.label, labelStyle]}>{label}</Text> : null} 
       <TextInput
         style={[styles.input, inputStyle]}
-        placeholder={placeholder} // Use the placeholder prop
         {...inputProps}
       />
     </View>

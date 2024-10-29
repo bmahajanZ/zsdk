@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { AppColors } from '../../Enums/AppColors';
 import Divider from '../../components/Divider';
-import SDKConfigureSection from './SDKConfifureSection';
+import SDKConfigureSection from './SDKConfigureSection';
 import TunnelStartStopSection from './TunnelStartStopSection';
 import HttpRequestSection from '../HttpRequestSection';
 import WebViewSection from './WebviewSection';
+import NativeZsdk, { LogLevel } from '../../../../src/NativeZsdk';
+import { AppKeyProvider } from '../../context/AppKeyContext';
 
 const HomeScreen: React.FC = () => {
+    useEffect(() => {
+        NativeZsdk.setConfiguration({
+            enableDebugLogsInConsole: true,
+            useProxyAuthentication: true,
+            logLevel: LogLevel.LogLevelDebug.valueOf(),
+        });
+    }, []);
     return (
         <View style={styles.home}>
-            <SDKConfigureSection />
-            <Divider />
-            <TunnelStartStopSection />
+            <AppKeyProvider>
+                <SDKConfigureSection />
+                <Divider />
+                <TunnelStartStopSection />
+            </AppKeyProvider>
             <Divider />
             <HttpRequestSection />
             <Divider />
