@@ -1,5 +1,4 @@
 import { NativeModules, Platform } from 'react-native';
-import NativeLocalStorage from './NativeLocalStorage';
 import type { ZscalerSDKConfiguration } from './NativeZsdk';
 
 const LINKING_ERROR =
@@ -50,5 +49,3 @@ export function status(): string {
 export function stopTunnel(): Promise<void> {
   return Zsdk.stopTunnel();
 }
-
-export default isTurboModuleEnabled ? NativeLocalStorage : null;

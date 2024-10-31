@@ -1492,6 +1492,7 @@ PODS:
   - ReactTestApp-Resources (1.0.0-dev)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
+  - ZscalerSDK (436)
   - zsdk (0.1.0):
     - DoubleConversion
     - glog
@@ -1513,6 +1514,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+    - ZscalerSDK
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
@@ -1582,6 +1584,7 @@ DEPENDENCIES:
   - ReactTestApp-DevSupport (from `../node_modules/react-native-test-app`)
   - ReactTestApp-Resources (from `..`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - ZscalerSDK (from `~/Desktop/React-libs/zscalersdk-ios`)
   - zsdk (from `../..`)
 
 SPEC REPOS:
@@ -1717,6 +1720,8 @@ EXTERNAL SOURCES:
     :path: ".."
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
+  ZscalerSDK:
+    :path: "~/Desktop/React-libs/zscalersdk-ios"
   zsdk:
     :path: "../.."
 
@@ -1786,8 +1791,9 @@ SPEC CHECKSUMS:
   ReactTestApp-Resources: ef64fb77d09031eba0ada7240f39d4579fa02361
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: f8ec45ce98bba1bc93dd28f2ee37215180e6d2b6
-  zsdk: 00b6d30f67c44e8679f3ff222f1676f121ccd19b
+  ZscalerSDK: 3619864d25f8fa9dcad03759ee7f2df9c0f07360
+  zsdk: b8eda62c8e040ca470d2ec9c733e390756919b88
 
-PODFILE CHECKSUM: d57ae6e8244e7bd11384bb8eb7a8ceead8f610dd
+PODFILE CHECKSUM: 927aa31c9d60e2ee8a895c269f6bfd9859ca4a68
 
 COCOAPODS: 1.15.2

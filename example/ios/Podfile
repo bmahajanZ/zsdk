@@ -7,3 +7,4 @@ require "#{ws_dir}/node_modules/react-native-test-app/test_app.rb"
 workspace 'ZsdkExample.xcworkspace'
 
 use_test_app!
+pod 'ZscalerSDK', :path => '~/Desktop/React-libs/zscalersdk-ios'

@@ -6,7 +6,7 @@ import { AppColors } from '../../Enums/AppColors';
 import type React from 'react';
 import { useContext, useState } from 'react';
 import { RequestContext, RequestType } from '../../contexts/RequestContext';
-import { fetchData } from '../../services/ApiService';
+import { fetchData } from '../../api/ApiService';
 
 const HttpRequestSection: React.FC = () => {
   return (
