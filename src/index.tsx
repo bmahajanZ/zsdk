@@ -49,3 +49,5 @@ export function status(): Promise<string> {
 export function stopTunnel(): Promise<void> {
   return Zsdk.stopTunnel();
 }
+
+export * from './NativeZsdk';
