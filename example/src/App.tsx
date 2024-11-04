@@ -1,7 +1,16 @@
 import { StyleSheet, View, SafeAreaView } from 'react-native';
 import HomeScreen from './screens/home/HomeScreen';
+import { useEffect } from 'react';
+import NativeZsdk from '../../src/NativeZsdk';
 
 export default function App() {
+  // Run this once to make sure tunnel is disconnected on app start
+  useEffect(() => {
+    async function stopTunnel() {
+      console.log(await NativeZsdk.stopTunnel());
+    }
+    stopTunnel();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>

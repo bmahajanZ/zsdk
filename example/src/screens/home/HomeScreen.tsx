@@ -12,11 +12,18 @@ import { RequestProvider } from '../../providers/RequestProvider';
 
 const HomeScreen: React.FC = () => {
   useEffect(() => {
-    NativeZsdk.setConfiguration({
-      enableDebugLogsInConsole: true,
-      useProxyAuthentication: true,
-      logLevel: LogLevel.LogLevelDebug.valueOf(),
-    });
+    async function setConfig() {
+      try {
+        await NativeZsdk.setConfiguration({
+          enableDebugLogsInConsole: true,
+          useProxyAuthentication: true,
+          logLevel: LogLevel.LogLevelDebug.valueOf(),
+        });
+      } catch (error) {
+        console.log('Error setting configuration', error);
+      }
+    }
+    setConfig();
   }, []);
   return (
     <View style={styles.home}>

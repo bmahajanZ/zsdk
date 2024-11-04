@@ -67,7 +67,7 @@ const Status: React.FC = () => {
   // Function you want to poll
   const fetchUpdatedStatus = async () => {
     // Call your function here
-    const updatedStatus = NativeZsdk.status();
+    const updatedStatus = await NativeZsdk.status();
     if (updatedStatus !== status) {
       setStatus(updatedStatus);
     }

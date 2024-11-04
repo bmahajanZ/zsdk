@@ -38,11 +38,11 @@ export function startPreloginTunnel(
 
 export function setConfiguration(
   ZscaleSDKConfiguration: ZscalerSDKConfiguration
-): void {
+): Promise<void> {
   return Zsdk.setConfiguration(ZscaleSDKConfiguration);
 }
 
-export function status(): string {
+export function status(): Promise<string> {
   return Zsdk.status();
 }
 

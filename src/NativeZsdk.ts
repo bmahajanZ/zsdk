@@ -21,8 +21,10 @@ export interface ZscalerSDKConfiguration {
 export interface Spec extends TurboModule {
   multiply(a: number, b: number): Promise<number>;
   startPreloginTunnel(appKey: string, udid: string): Promise<Error | void>;
-  setConfiguration(ZscaleSDKConfiguration: ZscalerSDKConfiguration): void;
-  status(): string;
+  setConfiguration(
+    ZscaleSDKConfiguration: ZscalerSDKConfiguration
+  ): Promise<void>;
+  status(): Promise<string>;
   stopTunnel(): Promise<void>;
 }
 

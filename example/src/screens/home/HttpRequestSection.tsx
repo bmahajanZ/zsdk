@@ -1,4 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  FlatList,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import InputRow from '../../components/InputRow';
 import ActionButton from '../../components/ActionButton';
 import { AppStrings } from '../../Enums/AppStrings';
@@ -79,19 +86,25 @@ const HttpMethodSelectBtn: React.FC = () => {
         style={styles.requestButton}
         onPress={toggleModal}
       />
-      {dropdownVisible && (
-        <View style={styles.dropdownContainer}>
-          {options.map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.option}
-              onPress={() => selectOption(option)}
-            >
-              <Text>{option}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      )}
+
+      <Modal transparent={true} visible={dropdownVisible} animationType="fade">
+        <TouchableOpacity style={styles.overlay} onPress={toggleModal}>
+          <View style={styles.dropdown}>
+            <FlatList
+              data={options}
+              keyExtractor={(item) => item}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={() => selectOption(item)}
+                >
+                  <Text style={styles.option}>{item}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -154,21 +167,28 @@ const styles = StyleSheet.create({
   },
   // ///////
 
-  dropDownBox: { flex: 1 },
-  dropdownContainer: {
-    position: 'absolute',
-    top: 50, // Adjust based on your layout
-    width: 150,
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-    zIndex: 1,
+  dropDownBox: { flex: 1, zIndex: 10 },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dropdown: {
+    width: 200,
+    backgroundColor: AppColors.White,
+    borderRadius: 4,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    shadowColor: AppColors.Black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5,
   },
   option: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    paddingVertical: 8,
+    paddingHorizontal: 10,
   },
 });
 
