@@ -35,7 +35,7 @@ class ZsdkModule internal constructor(context: ReactApplicationContext) :
   }
 
   @ReactMethod
-  override fun startPreloginTunnel(appKey: String?, udid: String?, promise: Promise?) {
+  override fun startPreloginTunnel(appKey: String?, udid: String?, promise: Promise) {
     CoroutineScope(Dispatchers.IO).launch {
       // Code to run in the background
       try {
@@ -48,20 +48,20 @@ class ZsdkModule internal constructor(context: ReactApplicationContext) :
           return@launch
         }
         ZscalerSDK.startPreLoginTunnel(appKey = appKey, deviceUdid = udid)
-        promise?.resolve("startPreLoginTunnel completed")
+        promise.resolve("startPreLoginTunnel completed")
       } catch (e: Exception) {
         Log.e(LOG_TAG, "startPreLoginTunnel() failed with exception :: ${e.message}")
         val errorCode = when (e) {
           is ZscalerSDKException -> e.errorCode
           else -> -1
         }
-        promise?.reject(errorCode.toString(), "startPreLoginTunnel() failed with exception :: ${e.message}")
+        promise.reject(errorCode.toString(), "startPreLoginTunnel() failed with exception :: ${e.message}")
       }
     }
   }
 
   @ReactMethod
-  override fun setConfiguration(jsSDKConfig: ReadableMap?) {
+  override fun setConfiguration(jsSDKConfig: ReadableMap?, promise: Promise) {
     if(jsSDKConfig == null) {
       return
     }
@@ -94,17 +94,18 @@ class ZsdkModule internal constructor(context: ReactApplicationContext) :
       logLevel = logLevel
     )
     ZscalerSDK.setConfiguration(config)
+    promise.resolve("Config set successfully")
   }
 
   @ReactMethod
-  override fun status(): String {
-    return ZscalerSDK.status()
+  override fun status(promise: Promise) {
+    promise.resolve(ZscalerSDK.status())
   }
 
   @ReactMethod
-  override fun stopTunnel(promise: Promise?) {
+  override fun stopTunnel(promise: Promise) {
     ZscalerSDK.stopTunnel()
-    promise?.resolve("Tunnel stop success")
+    promise.resolve("Tunnel stop successfully")
   }
 
   companion object {
